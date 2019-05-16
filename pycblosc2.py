@@ -8,7 +8,6 @@ except DistributionNotFound:
     from setuptools_scm import get_version
     __version__ = get_version()
 
-import ctypes
 from cffi import FFI
 
 ffi = FFI()
@@ -150,7 +149,7 @@ ffi.cdef(
     """
 )
 
-C = ffi.dlopen(ctypes.util.find_library("blosc"))
+C = ffi.dlopen("blosc")
 
 
 def blosc_init():
